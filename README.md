@@ -1,4 +1,29 @@
-protractor_api
-==============
+# Protractor
 
-Small implementation for Protractor's XML API
+TODO: Write a gem description
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+    gem 'protractor'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install protractor
+
+## Usage
+
+TODO: Write usage instructions here
+
+## Contributing
+
+1. Fork it ( http://github.com/<my-github-username>/protractor/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
