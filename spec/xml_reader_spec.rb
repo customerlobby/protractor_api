@@ -37,6 +37,14 @@ describe Protractor::XmlReader do
     reader.invoices.xpath("Summary/GrandTotal").text.should eq('1192.6900')
   end
 
+  it 'should return an enumeration of vehicles' do
+    reader = Protractor::XmlReader.new(hardcoded_xml)
+    reader.vehicles.count.should eq(1)
+    reader.vehicles.respond_to?(:each).should eq(true)
+    reader.vehicles.xpath("ID").text.should eq('ccdb63ef-c462-444a-8656-0d19f7aa4371')
+    reader.vehicles.xpath("Make").text.should eq('GMC')
+  end
+
   def failed_xml
     %{<?xml version="1.0" encoding="utf-8"?><CRMDataSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><Header><ErrorNumber>InvalidConnectionID</ErrorNumber><ErrorMessage>Invalid connection ID '00000000-0000-0000-0000-000000000000'!</ErrorMessage></Header><Contacts /><ServiceItems /><Invoices /><Appointments /></CRMDataSet>}
   end
@@ -138,7 +146,34 @@ describe Protractor::XmlReader do
         <NoPostCard>false</NoPostCard>
       </Item>
     </Contacts>
-    <ServiceItems>...</ServiceItems>
+    <ServiceItems>
+      <Item>
+        <Header>
+          <ID>ccdb63ef-c462-444a-8656-0d19f7aa4371</ID>
+          <CreationTime>2013-07-19T13:58:11.163-04:00</CreationTime>
+          <DeletionTime>0001-01-01T00:00:00</DeletionTime>
+          <LastModifiedTime>2014-04-28T22:01:14.863-04:00</LastModifiedTime>
+          <LastModifiedBy>Test\Lei</LastModifiedBy>
+        </Header>
+        <ID>ccdb63ef-c462-444a-8656-0d19f7aa4371</ID>
+        <Type>Vehicle</Type>
+        <Lookup>6795AX</Lookup>
+        <Description>2007 GMC Sierra 1500 Classic SL</Description>
+        <Usage>18000</Usage>
+        <ProductionDate>0001-01-01T00:00:00</ProductionDate>
+        <NoEmail>false</NoEmail>
+        <NoPostCard>false</NoPostCard>
+        <OwnerID>c7939c57-c67c-4c33-bc33-56cb85dcfa10</OwnerID>
+        <PlateRegistration>TX</PlateRegistration>
+        <VIN>2GTEK13T471104369</VIN>
+        <Color>Black</Color>
+        <Year>2007</Year>
+        <Make>GMC</Make>
+        <Model>Sierra 1500</Model>
+        <Submodel>Classic SL</Submodel>
+        <Engine>V8 5.3L 5328CC 325CI</DEngine>
+      </Item>
+    </ServiceItems>
     <Invoices>
       <Item>
         <Header>
