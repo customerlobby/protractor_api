@@ -34,5 +34,10 @@ module Protractor
     def invoices
       @nokogiri_xml.xpath("//CRMDataSet/Invoices/Item")
     end
+
+    # @returns Nokogiri NodeSet representing vehicles
+    def vehicles
+      @nokogiri_xml.xpath("//CRMDataSet/ServiceItems/Item")
+    end
   end
 end
